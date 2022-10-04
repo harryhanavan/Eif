@@ -30,17 +30,90 @@ String eif3 = "#collaspeOne";
 
 void loadTables(){
   Table BroadwayIn = loadTable(BrIn, "csv");
-  int n = 0;
-  while (n < BroadwayIn.getRowCount()){
-  
+  int BIn = 0;
+  while (BIn < BroadwayIn.getRowCount()){
+    String BrInTime = BroadwayIn.getString(BIn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(BrInTime);
+    long epoch = date.getTime();
+    BroadwayIn.setFloat(BIn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    BIn++;
   }
+  //saveTable(BroadwayIn, "Broadway.csv");
   Table BroadwayOut = loadTable(BrOut, "csv");
+    int BOn = 0;
+  while (BOn < BroadwayOut.getRowCount()){
+    String BrOutTime = BroadwayOut.getString(BOn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(BrOutTime);
+    long epoch = date.getTime();
+    BroadwayOut.setFloat(BOn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    BOn++;
+  }
   
   Table JonesIn = loadTable(JoIn, "csv");
+    int JIn = 0;
+  while (JIn < JonesIn.getRowCount()){
+    String JoInTime = JonesIn.getString(JIn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(JoInTime);
+    long epoch = date.getTime();
+    JonesIn.setFloat(JIn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    JIn++;
+  }
   Table JonesOut =loadTable(JoOut, "csv");
+  int JOn = 0;
+  while (JOn < JonesOut.getRowCount()){
+    String JoOutTime = JonesOut.getString(JOn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(JoOutTime);
+    long epoch = date.getTime();
+    JonesOut.setFloat(JOn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    JOn++;
+  }
   
   Table WattleIn = loadTable(WaIn, "csv");
+  int WIn = 0;
+  while (WIn < WattleIn.getRowCount()){
+    String WaInTime = WattleIn.getString(WIn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(WaInTime);
+    long epoch = date.getTime();
+    WattleIn.setFloat(WIn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    WIn++;
+  }
   Table WattleOut = loadTable(WaOut, "csv");
-  
-  print(BroadwayIn.getString(0,1));
+    int WOn = 0;
+  while (WOn < WattleOut.getRowCount()){
+    String WaOutTime = WattleOut.getString(WOn,0);
+        try{
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    Date date = df.parse(WaOutTime);
+    long epoch = date.getTime();
+    WattleOut.setFloat(WOn,0,epoch);
+        }
+    catch (java.text.ParseException e){e.printStackTrace();}
+    
+    WOn++;
+  }
 }
